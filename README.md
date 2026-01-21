@@ -87,6 +87,68 @@ python runner.py \
   --out results/llama_bm25.jsonl
 ```
 
+---
+
+## CLI Arguments
+
+Run the following to view all available arguments:
+
+python runner.py --help
+
+Key arguments:
+
+--targets  
+Path to target JSON file (questions to answer)
+
+--pool  
+Path to pool JSON file (retrieval corpus)
+
+--retriever  
+Retrieval method (bm25, cosine, dragon)
+
+--top-k  
+Number of retrieved documents per question
+
+--out  
+Output JSONL file path
+
+Retriever-specific:
+
+--embed-model  
+Embedding model for cosine retriever (default: sentence-transformers/all-MiniLM-L6-v2)
+
+--dragon-query  
+Query encoder for Dragon retriever
+
+--dragon-doc  
+Doc encoder for Dragon retriever
+
+Generator-specific:
+
+--generator  
+Generation backend (hf, openai, deepseek)
+
+--hf-model  
+HuggingFace causal LM identifier (required if --generator hf)
+
+--device  
+Device for HF inference (auto, cpu, cuda)
+
+--openai-model  
+OpenAI model name (required if --generator openai)
+
+--openai-api-key  
+Optional OpenAI API key override (otherwise uses OPENAI_API_KEY)
+
+--deepseek-model  
+Replicate model ID (required if --generator deepseek)
+
+--replicate-api-token  
+Optional token override (otherwise uses REPLICATE_API_TOKEN)
+
+--max-new-tokens  
+Maximum new tokens generated per question
+
 
 ---
 
